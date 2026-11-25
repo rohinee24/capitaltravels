@@ -1,2 +1,30 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { margin: 0; padding: 0; }
+  #root { width: 100%; min-height: 100vh; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#E05A1A] hover:bg-[#C04A10] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-md inline-flex items-center gap-2;
+  }
+  .btn-outline {
+    @apply border-2 border-[#E05A1A] text-[#E05A1A] hover:bg-[#E05A1A] hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 inline-flex items-center gap-2;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-black text-[#1A1A2E] mb-3;
+  }
+  .section-subtitle {
+    @apply text-[#E05A1A] font-semibold uppercase tracking-widest text-xs mb-2;
+  }
+  .section-desc {
+    @apply text-gray-500 text-base max-w-2xl mx-auto;
+  }
+}
