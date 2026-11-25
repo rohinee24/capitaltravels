@@ -88,7 +88,7 @@ const WhyUs = () => {
         </div>
 
         {/* ── Two column layout ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 pl-5 pr-5 ">
 
           {/* Left — image with floating badge */}
           <div className="relative">
@@ -147,7 +147,7 @@ const WhyUs = () => {
         </div>
 
         {/* ── Stats banner ── */}
-        <div className="relative rounded-3xl overflow-hidden">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden mx-0 sm:mx-0">
           {/* Background */}
           <div className="absolute inset-0 bg-[#1A1A2E]" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#E05A1A]/10 rounded-full -translate-y-1/2 translate-x-1/4 blur-3xl" />
@@ -156,9 +156,9 @@ const WhyUs = () => {
           <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {stats.map((s, i) => (
               <div key={s.label}
-                className="text-center px-6 py-10 group hover:bg-white/5 transition-colors duration-300">
-                <div className="flex justify-center mb-4">
-                  <div className="w-14 h-14 bg-[#E05A1A]/15 group-hover:bg-[#E05A1A] rounded-2xl flex items-center justify-center text-[#E05A1A] group-hover:text-white transition-all duration-300">
+                className="text-center px-3 sm:px-6 py-7 sm:py-10 group hover:bg-white/5 transition-colors duration-300">
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 bg-[#E05A1A]/15 group-hover:bg-[#E05A1A] rounded-xl sm:rounded-2xl flex items-center justify-center text-[#E05A1A] group-hover:text-white transition-all duration-300">
                     {s.icon}
                   </div>
                 </div>

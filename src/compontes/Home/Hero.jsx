@@ -89,7 +89,7 @@ const Hero = () => {
   const slide = slides[current];
 
   return (
-    <section className="relative w-full overflow-hidden" style={{ height: "100vh", minHeight: "600px" }}>
+    <section className="relative w-full overflow-hidden" style={{ height: "100svh", minHeight: "520px", maxHeight: "900px" }}>
 
       {/* ── Background images — cross-fade ── */}
       {slides.map((s, i) => (
@@ -115,40 +115,35 @@ const Hero = () => {
       />
 
       {/* ── Main content ── */}
-      <div className="relative z-20 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-20 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div
           key={current}
-          className="max-w-2xl"
+          className="w-full max-w-2xl"
           style={{ animation: "slideUp 0.65s ease-out forwards" }}
         >
-          {/* Location pill */}
-          {/* <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm rounded-full px-3 py-1 mb-4 text-xs text-white/80">
-            <svg className="w-3 h-3 text-white/60" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-            </svg>
-            {slide.location}
-          </div> */}
-
-          
-
           {/* Heading */}
-          <h1 className="font-heading font-black leading-tight mb-5 text-3xl md:text-3xl lg:text-5xl drop-shadow-lg">
+          <h1 className="font-heading font-black leading-tight mb-3 sm:mb-5 drop-shadow-lg
+            text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
             <span className="block text-white">{slide.title}</span>
             <span className="block" style={{ color: slide.accent }}>{slide.titleHighlight}</span>
           </h1>
 
-          {/* Description */}
-          <p className="text-gray-200 text-base md:text-md mb-4 leading-relaxed max-w-xl drop-shadow">
+          {/* Description — hidden on very small screens */}
+          <p className="hidden sm:block text-gray-200 text-sm md:text-base mb-4 leading-relaxed max-w-xl drop-shadow">
+            {slide.sub}
+          </p>
+          {/* Short version for mobile */}
+          <p className="sm:hidden text-gray-200 text-xs mb-3 leading-relaxed drop-shadow line-clamp-2">
             {slide.sub}
           </p>
 
           {/* Price / location tag */}
-          <p className="text-sm font-medium mb-8" style={{ color: slide.accent }}>
+          <p className="text-xs sm:text-sm font-medium mb-4 sm:mb-6" style={{ color: slide.accent }}>
             {slide.tag}
           </p>
 
-          {/* Quick enquiry */}
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 mb-6 max-w-lg">
+          {/* Quick enquiry — hidden on mobile */}
+          <div className="hidden sm:block bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 mb-5 max-w-lg">
             <p className="text-white/50 text-[10px] font-bold uppercase tracking-widest mb-2.5">Quick Enquiry</p>
             <div className="flex gap-2">
               <input
@@ -168,26 +163,26 @@ const Hero = () => {
           </div>
 
           {/* CTA buttons */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             <Link
               to={slide.ctaLink}
-              className="inline-flex items-center gap-2 font-bold px-7 py-3 rounded-xl transition-all duration-200 shadow-lg text-sm text-white"
+              className="inline-flex items-center gap-2 font-bold px-5 sm:px-7 py-2.5 sm:py-3 rounded-xl transition-all duration-200 shadow-lg text-xs sm:text-sm text-white"
               style={{ background: slide.accent }}
             >
               {slide.cta}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
             <a
               href="https://wa.me/919890363536"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-7 py-3 rounded-xl transition-all duration-200 text-sm backdrop-blur-sm"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-5 sm:px-7 py-2.5 sm:py-3 rounded-xl transition-all duration-200 text-xs sm:text-sm backdrop-blur-sm"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.057 23.882a.5.5 0 00.611.611l6.025-1.476A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.692-.509-5.228-1.396l-.375-.218-3.878.95.968-3.878-.224-.381A9.945 9.945 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
               </svg>
-              WhatsApp Us
+              WhatsApp
             </a>
           </div>
         </div>
@@ -213,17 +208,17 @@ const Hero = () => {
       {/* ── Prev / Next arrows ── */}
       <button
         onClick={goPrev}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 border border-white/30 backdrop-blur-sm text-white flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="absolute left-2 sm:left-4 md:left-8 bottom-16 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/25 border border-white/30 backdrop-blur-sm text-white flex items-center justify-center transition-all duration-200"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
       </button>
       <button
         onClick={goNext}
-        className="absolute right-4 md:right-8 lg:right-28 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 border border-white/30 backdrop-blur-sm text-white flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="absolute right-2 sm:right-4 md:right-8 lg:right-28 bottom-16 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/25 border border-white/30 backdrop-blur-sm text-white flex items-center justify-center transition-all duration-200"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
         </svg>
       </button>
