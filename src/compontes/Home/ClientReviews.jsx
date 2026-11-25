@@ -84,7 +84,7 @@ const ReviewCard = ({ review, active }) => {
 
   return (
     <div
-      className="bg-white rounded-2xl shadow-xl p-6 flex flex-col gap-4 transition-all duration-500 mx-2"
+      className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 flex flex-col gap-4 transition-all duration-500 mx-0"
       style={{
         transform: active ? "scale(1.03)" : "scale(0.97)",
         opacity: active ? 1 : 0.7,
@@ -206,7 +206,7 @@ const ClientReviews = () => {
           </h2>
 
           {/* Google rating badge */}
-          <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3 mt-2">
+          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 sm:px-6 py-3 mt-2 max-w-full">
             <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md flex-shrink-0">
               <svg className="w-6 h-6" viewBox="0 0 48 48">
                 <path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.1 33.9 29.6 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.4-.2-2.7-.5-4z"/>
@@ -251,7 +251,7 @@ const ClientReviews = () => {
           {/* Prev arrow */}
           <button
             onClick={goPrev}
-            className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-all hover:scale-110 z-10"
+            className="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-all hover:scale-110 z-10"
           >
             <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -261,7 +261,7 @@ const ClientReviews = () => {
           {/* Next arrow */}
           <button
             onClick={goNext}
-            className="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-all hover:scale-110 z-10"
+            className="absolute right-0 sm:-right-6 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-all hover:scale-110 z-10"
           >
             <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />

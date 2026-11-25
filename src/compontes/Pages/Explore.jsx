@@ -236,7 +236,7 @@ const Explore = () => {
     <div className="pt-16">
 
       {/* ── Hero banner ── */}
-      <section className="relative overflow-hidden py-24 md:py-32">
+      <section className="relative overflow-hidden py-16 sm:py-20 md:py-32">
         <img src="/ajantacaves.jpg" alt="Tours" className="absolute inset-0 w-full h-full object-cover object-top" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A2E]/90 via-[#1A1A2E]/70 to-[#E05A1A]/50" />
 
